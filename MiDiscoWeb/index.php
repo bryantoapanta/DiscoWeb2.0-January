@@ -21,6 +21,8 @@ $rutasUser = [
     "Cerrar"      => "ctlUserCerrar",
     "VerUsuarios" => "ctlUserVerUsuarios"
 ];
+
+
 // Si no hay usuario a Inicio
 if (!isset($_SESSION['user'])){
     $procRuta = "ctlUserInicio";
@@ -57,6 +59,39 @@ if (isset($_GET['orden'])){
     }
 }else{
     $procRuta = "ctlUserInicio";
+}
+
+//Gestion Ficheros
+
+// Rutas en MODO GESTIONFICHEROS
+$rutasFicheros = [
+    "VerFicheros" => "ctlFileVerFicheros",
+    "Nuevo"       => "ctlFileNuevo",
+    "Borrar"      => "ctlFileBorrar",
+    "Renombrar"   => "ctlFileRenombrar",
+    "Compartir"   => "ctlFileCompartir",
+    "Cerrar"      => "ctlUserCerrar",
+    "Descargar"   => "ctlFileDescargar"
+];
+
+if ($_SESSION['modo'] == GESTIONFICHEROS){
+    if (isset($_GET['operacion'])){
+        // La orden tiene una funcion asociada
+        if ( isset ($rutasFicheros[$_GET['operacion']]) ){
+            $procRuta =  $rutasFicheros[$_GET['operacion']];
+        }
+        else {
+            // Error no existe función para la ruta
+            header('Status: 404 Not Found');
+            echo '<html><body><h1>Error 404: No existe la ruta <i>' .
+                $_GET['ctl'] .
+                '</p></body></html>';
+                exit;
+        }
+    }
+    else {
+        $procRuta = "ctlFileVerFicheros";
+    }
 }
 
 // Llamo a la funciÃ³n seleccionada
