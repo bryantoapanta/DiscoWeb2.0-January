@@ -26,10 +26,10 @@ function ctlUserInicio()
                         header('Location:index.php?orden=VerUsuarios');
                     }
                 } else {
-                    ($_SESSION['modo'] = "0");
+                    ($_SESSION['modo'] = GESTIONFICHEROS);
+                    header('Location:index.php?operacion=VerFicheros');
                     // Usuario normal;
                     // PRIMERA VERSIÓN SOLO USUARIOS ADMISTRADORES
-                    $msg = "Error: Acceso solo permitido a usuarios Administradores.";
                     // $_SESSION['modo'] = GESTIONFICHEROS;
                     // Cambio de modo y redireccion a verficheros
                 }

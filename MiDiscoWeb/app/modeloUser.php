@@ -78,7 +78,7 @@ function modeloUserUpdate($userid, $userdat)
 {
     foreach ($_SESSION['tusuarios'] as $clave => $valor) {
         if ($clave == $userid) {
-            $_SESSION['tusuarios'][$userid] = $userdat;
+            $_SESSION['tusuarios'][$userid] = $userdat;//ACTUALIZA TODO EXCEPTO EL USERID
         }
     }
     return true;
@@ -167,4 +167,18 @@ function cumplerequisitos($clave1, $clave2, $user, $email, &$msg)
         }
     }
     return $ok;
+}
+//MODELO USER FICHEROS--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+function modeloUserGetFiles(){
+     $tuservista = [];
+     //REALIZAMOS UN FOR-EACH PARA SACAR LOS DATOS DEL USUARIO CONECTADO. EL USUARIO LO SACAMOS A ATRAVES DE $_SESSION["USER"]
+    foreach ($_SESSION['tusuarios'] as $clave => $datosusuario) {
+        if($clave==$_SESSION["user"]){
+        $tuservista[$clave] = [
+            $datosusuario[1],
+            ESTADOS[$datosusuario[4]]
+        ];}
+    }
+    return $tuservista;
 }

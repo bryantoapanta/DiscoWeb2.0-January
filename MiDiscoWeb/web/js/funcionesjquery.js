@@ -1,34 +1,45 @@
-/*var x = "";
-x = $(document);
-x.ready(inicializarEventos);
-
-function presionModificar() {
-	  alert("Usted accederá a modificar sus datos");
+<html>
+<head>
+<title>Cuadrados de colores</title>
+<style>
+body {
+	background: silver;
+	text-align: justify;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 14px;
+	color: #757E82;
 }
 
-function presionDetalles() {
-	  alert("Usted accederá a comprobar los detalles");
+#container {
+	margin: 0 auto;
+	width: 500px;
+	background: #fff;
+	border: solid 1px;
 }
 
-function inicializarEventos() {
-	  $("#modificar").click(presionModificar);
-	  $("#detalles").click(presionDetalles);
+#header {
+	background: blue;
+	text-align: center;
+	padding: 20px;
+	color: white;
+	text-shadow: black 0.1em 0.1em 0.2em;
 }
 
-var x;
-x = $(document);
-x.ready(inicializarEventos);
-
-function presionCambiaColor() {
-  var x;
-  x=$(".users");
-  x.css("color","#ff0000")
-  x.css("background-color","#ffff00")
-  x.css("font-family","courier")
+#content {
+	background: white;
+	clear: left;
+	padding: 20px;
+	align-content: center;
+	
 }
-
-function inicializarEventos() {
-  var x;
-  x=$(".users");
-  x.click(presionCambiaColor)  
-}*/
+table, th, td {
+  border: 1px solid black;
+} 
+</style>
+</head>
+<body>
+	<div id="container">
+		<div id="header">
+			<h1>Tablero de colores</h1>
+		</div>
+		<div id="content">

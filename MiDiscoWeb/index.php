@@ -46,7 +46,7 @@ if (!isset($_SESSION['user'])){
             $procRuta = "ctlUserVerUsuarios";
         }
     }
-    // Usuario Normal PRIMERA VERSION SIN ACCIONES
+    // Usuario Normal PRIMERA SVERSION SIN ACCIONES
     else {
         $procRuta = "ctlUserInicio";
     }
@@ -71,8 +71,9 @@ $rutasFicheros = [
     "Renombrar"   => "ctlFileRenombrar",
     "Compartir"   => "ctlFileCompartir",
     "Cerrar"      => "ctlUserCerrar",
-    "Descargar"   => "ctlFileDescargar"
-];
+    "Descargar"   => "ctlFileDescargar",
+    "Modificar"   => "ctlFileModificar",
+    ];
 
 if ($_SESSION['modo'] == GESTIONFICHEROS){
     if (isset($_GET['operacion'])){
@@ -81,7 +82,7 @@ if ($_SESSION['modo'] == GESTIONFICHEROS){
             $procRuta =  $rutasFicheros[$_GET['operacion']];
         }
         else {
-            // Error no existe función para la ruta
+            // Error no existe funciï¿½n para la ruta
             header('Status: 404 Not Found');
             echo '<html><body><h1>Error 404: No existe la ruta <i>' .
                 $_GET['ctl'] .

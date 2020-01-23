@@ -20,7 +20,7 @@ function volverInicio() {
 }
 
 function cerrarSesion() {
-	document.location.href = "?orden=Cerrar";
+	document.location.href = "index.php?orden=Cerrar";
 }
 
 function altaUsuario() {
@@ -29,4 +29,28 @@ function altaUsuario() {
 
 function alerta() {
 	alert("Usuario creado");
+}
+
+
+
+//--------------------------------------------------------JS FCHEROS--------------------------
+function cerrarSesionUsuario() {
+	document.location.href = "index.php?operacion=Cerrar";
+}
+
+function subirFicheros() {
+	document.location.href = "?operacion=Nuevo";
+	
+}
+
+function verFicheros() {
+	if (confirm("¿Quieres volver atrás?")) {
+		document.location.href = "?operacion=VerFicheros";
+	}
+}
+
+function modificarDatos() {
+	if (confirm("¿Quieres modificar tus datos?")) {
+		document.location.href = "?operacion=Modificar";
+	}
 }

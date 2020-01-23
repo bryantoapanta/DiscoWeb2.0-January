@@ -6,7 +6,7 @@ ob_start();
 ?>
 <div id='aviso'><b><?= (isset($msg))?$msg:"" ?></b></div>
 <center>
-	<h1 class="paginas">Usuarios</h1>
+	<h1 class="paginas">Ficheros Del Usuario <?=$_SESSION["user"]?></h1>
 	<table id="verusuarios">
 		<tr>
 <?php
@@ -37,9 +37,8 @@ $auto = $_SERVER['PHP_SELF'];
 
 	<br>
 	<form action='index.php'>
-		<input type='button' value='Cerrar sesión' onclick="cerrarSesion()">
-		<input type='button' value='Nuevo usuario' onclick="altaUsuario()">
-		
+		<input type='button' value='Cerrar sesión' onclick="cerrarSesionUsuario()">
+		<input type='button' value='Modificar Datos' onclick="modificarDatos()">
 	</form>
 	
 </center>
