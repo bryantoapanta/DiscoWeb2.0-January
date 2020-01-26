@@ -67,7 +67,7 @@ function ctlUserBorrar()
 {
     $msg = "";
     $user = $_GET['id'];
-    if (modeloUserDel($user)) {
+    if (modeloUserDelfichero($user)) {
         $msg = "El usuario se borró correctamente.";
     } else {
         $msg = "No se pudo borrar el usuario.";

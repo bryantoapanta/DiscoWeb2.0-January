@@ -7,6 +7,7 @@ include_once 'app/modeloUser.php';
 
 // Inicializo el modelo
 modeloUserInit();
+$msg="";
 
 // Enrutamiento
 // Relación entre peticiones y función que la va a tratar

@@ -83,7 +83,7 @@ textarea {
 
 table,
 th,
-td {
+td,tr {
     font-family: 'sanssolid', sans-serif;
     color: #9C9C9C;
     border: 22px solid #757E82;
@@ -91,7 +91,7 @@ td {
     padding: 10px;
 }
 
-#verusuarios td{
+#verusuarios th, td{
 	font-size: 0.73em;
 }
 
@@ -145,7 +145,8 @@ td input{
 
 #verusuarios,
 #verusuarios td,
-#verusuarios tr {
+#verusuarios tr,
+#verusuarios th {
     border: 1px solid #757E82;
 }
 
@@ -305,7 +306,7 @@ th,
 td {
     font-family: 'sanssolid', sans-serif;
     color: #9C9C9C;
-    border: 22px solid #757E82;
+    border: 1px solid #757E82;
     border-collapse: collapse;
     padding: 10px;
     font-size: 1.2em;

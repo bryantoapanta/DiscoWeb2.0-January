@@ -54,3 +54,9 @@ function modificarDatos() {
 		document.location.href = "?operacion=Modificar";
 	}
 }
+
+function confirmarBorrarfichero(nombre, id) {
+	if (confirm("¿Quieres eliminar el archivo:  " + nombre + "?")) {
+		document.location.href = "?operacion=Borrar&id=" + id+"&nombre="+nombre;
+	}
+}

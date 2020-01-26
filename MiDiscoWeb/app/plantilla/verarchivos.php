@@ -9,11 +9,16 @@ ob_start();
 	<h1 class="paginas">Ficheros Del Usuario <?=$_SESSION["user"]?></h1>
 	<table id="verusuarios">
 		<tr>
+		<th>Usuario</th>
+		<th>Nombre Fichero</th>
+		<th>Directorio</th>
+		<th>Tipo</th>
+		<th>Tamano</th>
 <?php
 $auto = $_SERVER['PHP_SELF'];
 // identificador => Nombre, email, plan y Estado
 ?>
-<?php foreach ($usuarios as $clave => $datosusuario) : ?>
+<?php foreach ($ficheros as $clave => $datosusuario) : ?>
 		
 		<tr>
 			<td class="users"><?= $clave ?></td> 
@@ -28,15 +33,16 @@ $auto = $_SERVER['PHP_SELF'];
      		}
      		 ?></td>
 			<?php endfor;?>
-			<td class="borrador"  ><a href="#" onclick="confirmarBorrar('<?= $datosusuario[0]."','".$clave."'"?>);">&#9760;&#9851;</a></td>
+			<td class="borrador"  ><a href="#" onclick="confirmarBorrarfichero('<?= $datosusuario[0]."','".$clave."'"?>);">&#9760;&#9851;</a></td>
 			<td class="modificacion"><a href="<?= $auto?>?orden=Modificar&id=<?= $clave ?>">&#9998;</a></td>
-			<td class="detalle"><a href="<?= $auto?>?orden=Detalles&id=<?= $clave?>">&#9776;</a></td>
+			<td class="detalle"><a href="<?= $auto?>?operacion=Descargar&id=<?= $clave?>">Descargar</a></td>
 		</tr>
 <?php endforeach; ?>
 </table>
 
 	<br>
 	<form action='index.php'>
+		<p><input type='button' value='Subir Fichero' onclick="subirFicheros();"></p>
 		<input type='button' value='Cerrar sesión' onclick="cerrarSesionUsuario()">
 		<input type='button' value='Modificar Datos' onclick="modificarDatos()">
 	</form>
