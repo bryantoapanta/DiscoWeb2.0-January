@@ -112,9 +112,26 @@ function ctlFileBorrar($msg)
 
 function ctlFileRenombrar($msg)
 {
-    $usuarios = modeloUserGetAll(); // almaceno dentro de $usuarios el contenido de la sesion usuarios
-                                    // Invoco la vista
-    include_once 'plantilla/verarchivos.php';
+    $msg = "";
+    $user = $_GET['id'];
+    $nombre= $_GET['nombre'];
+    $nuevoNombre= $_GET['nuevo'];
+    echo $nuevoNombre;
+    echo $_SESSION["ficheros"][$user][0];
+    if (modeloUserRenamefichero($user,$nuevoNombre)) {
+        $nombreAntiguo = "C:\Users\Bryan\Desktop\Prueba\\".$_SESSION["user"]."\\".$nombre;
+        $nombreNuevo = "C:\Users\Bryan\Desktop\Prueba\\".$_SESSION["user"]."\\".$nuevoNombre;
+        
+        echo $nombreAntiguo."---->".$nombreNuevo;
+        rename($nombreAntiguo, $nombreNuevo);
+        
+        
+        $msg = "El archivo se ha sido modificado correctamente.";
+    } else {
+        $msg = "No se pudo modificar el archivo.";
+    }
+    modeloUserSave();
+    ctlFileVerFicheros($msg);
 }
 
 function ctlFileCompartir($msg)

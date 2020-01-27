@@ -271,3 +271,16 @@ FUNCTION modeloUserDelfichero($user){
     }
     return $borrado;
 }
+
+//RENOMBRAR ARCHIVO
+FUNCTION modeloUserRenamefichero($user,$nombre){
+    $rename = false;
+    foreach ($_SESSION["ficheros"] as $clave => $valor) {
+        if ($clave == $user) {
+            //SI SE ENCUENTRA EL USUARIO, CAMBIAMOS EL NOMBRE DEL ARCHIVO POR EL NUEVO VALOR.
+          $_SESSION["ficheros"][$clave][0]=$nombre;
+          $rename=true;
+        }
+    }
+    return $rename;
+}

@@ -60,3 +60,10 @@ function confirmarBorrarfichero(nombre, id) {
 		document.location.href = "?operacion=Borrar&id=" + id+"&nombre="+nombre;
 	}
 }
+
+function confirmarRenombrarfichero(nombre, id) {
+	if (confirm("¿Quieres cambiar el nombre del archivo:  " + nombre + "?")) {
+		var nuevo=String(prompt("Introduce nuevo nombre"));
+		document.location.href = "?operacion=Renombrar&id=" + id+"&nombre="+nombre+"&nuevo="+nuevo;
+	}
+}
